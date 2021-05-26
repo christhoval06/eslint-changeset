@@ -21,7 +21,7 @@ const getChangedFilesByDiff = async (revision: string): Promise<string[]> =>
     .filter(Boolean);
 
 const getChangedFilesByLog = async (branch: string): Promise<string[]> =>
-  (await execGit(["log", "--name-only", "--pretty=format:", `${branch}..HEAD`]))
+  (await execGit(["log", "--name-only", `--pretty=format:${branch}..HEAD`]))
     .split("\n")
     .filter(Boolean);
 
